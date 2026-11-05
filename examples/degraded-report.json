@@ -1,0 +1,151 @@
+{
+  "schema_version": "1.0",
+  "tool": {
+    "name": "mac-health-inspector",
+    "version": "1.0.0"
+  },
+  "generated_at": "2026-01-15T12:00:00+00:00",
+  "data_source": "replay:degraded-laptop.json",
+  "summary": {
+    "overall_status": "fail",
+    "total": 10,
+    "counts": {
+      "pass": 0,
+      "warn": 6,
+      "fail": 1,
+      "error": 1,
+      "info": 2,
+      "skip": 0
+    }
+  },
+  "checks": [
+    {
+      "id": "os_version",
+      "title": "macOS version",
+      "category": "System",
+      "status": "info",
+      "summary": "macOS 14.7.1 (23H222)",
+      "details": {
+        "product_name": "macOS",
+        "product_version": "14.7.1",
+        "build_version": "23H222"
+      },
+      "remediation": ""
+    },
+    {
+      "id": "hardware",
+      "title": "Hardware",
+      "category": "System",
+      "status": "info",
+      "summary": "MacBookPro16,1, Intel, 8 GB RAM",
+      "details": {
+        "model_identifier": "MacBookPro16,1",
+        "architecture": "x86_64",
+        "memory_gb": 8.0
+      },
+      "remediation": ""
+    },
+    {
+      "id": "uptime",
+      "title": "Uptime",
+      "category": "System",
+      "status": "warn",
+      "summary": "Up 21.0 days",
+      "details": {
+        "uptime_days": 21.0,
+        "boot_epoch": 1766664000
+      },
+      "remediation": "Schedule a restart soon."
+    },
+    {
+      "id": "disk_space",
+      "title": "Boot volume free space",
+      "category": "Resources",
+      "status": "warn",
+      "summary": "50.0 GB free (11% of 460 GB)",
+      "details": {
+        "free_gb": 50.0,
+        "total_gb": 460.4,
+        "free_percent": 10.9
+      },
+      "remediation": "Free disk space: empty Trash, remove large unused files, or offload data."
+    },
+    {
+      "id": "memory_pressure",
+      "title": "Memory availability",
+      "category": "Resources",
+      "status": "fail",
+      "summary": "8% of memory free",
+      "details": {
+        "free_percent": 8
+      },
+      "remediation": "Quit memory-heavy applications or investigate runaway processes in Activity Monitor."
+    },
+    {
+      "id": "cpu_load",
+      "title": "CPU load",
+      "category": "Resources",
+      "status": "warn",
+      "summary": "5-minute load 13.00 across 8 logical CPUs (1.62 per core)",
+      "details": {
+        "load_1m": 14.2,
+        "load_5m": 13.0,
+        "load_15m": 11.4,
+        "logical_cpus": 8,
+        "load_per_core_5m": 1.62
+      },
+      "remediation": "Identify sustained high-CPU processes in Activity Monitor."
+    },
+    {
+      "id": "battery",
+      "title": "Battery health",
+      "category": "Hardware health",
+      "status": "warn",
+      "summary": "Condition Service Recommended, 1043 cycles, 76% maximum capacity",
+      "details": {
+        "condition": "Service Recommended",
+        "cycle_count": 1043,
+        "maximum_capacity_percent": 76
+      },
+      "remediation": "Battery service may be needed; check System Settings > Battery > Battery Health."
+    },
+    {
+      "id": "storage_smart",
+      "title": "Boot disk SMART status",
+      "category": "Hardware health",
+      "status": "error",
+      "summary": "`/usr/sbin/diskutil info -plist /` exited with status 1: Could not find disk: /",
+      "details": {
+        "command": "/usr/sbin/diskutil info -plist /"
+      },
+      "remediation": ""
+    },
+    {
+      "id": "kernel_panics",
+      "title": "Recent kernel panics",
+      "category": "Hardware health",
+      "status": "warn",
+      "summary": "1 kernel panic report(s) in the last 7 days",
+      "details": {
+        "panic_count": 1,
+        "lookback_days": 7,
+        "files": [
+          "Kernel-2026-01-13-091500.panic"
+        ]
+      },
+      "remediation": "Review panic reports in Console > Crash Reports for a common cause (kexts, hardware, OS bug)."
+    },
+    {
+      "id": "mdm_enrollment",
+      "title": "MDM enrollment",
+      "category": "Management",
+      "status": "warn",
+      "summary": "Enrolled in MDM but not user approved",
+      "details": {
+        "enrolled_via_automated_device_enrollment": "No",
+        "mdm_enrollment": "Yes"
+      },
+      "remediation": "Approve the MDM profile in System Settings so privileged MDM payloads apply."
+    }
+  ]
+}

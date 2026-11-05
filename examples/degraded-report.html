@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mac Health Report</title><style>
+:root{--bg:#f6f7f9;--card:#fff;--text:#1d1f23;--muted:#5f6673;--border:#e2e5ea;
+--pass:#1a7f37;--pass-bg:#dafbe1;--warn:#9a6700;--warn-bg:#fff8c5;--fail:#cf222e;--fail-bg:#ffebe9;
+--error:#8250df;--error-bg:#fbefff;--info:#0969da;--info-bg:#ddf4ff;--skip:#57606a;--skip-bg:#eaeef2}
+@media (prefers-color-scheme:dark){:root{--bg:#0d1117;--card:#161b22;--text:#e6edf3;--muted:#8d96a0;
+--border:#30363d;--pass:#3fb950;--pass-bg:#12261e;--warn:#d29922;--warn-bg:#272115;--fail:#f85149;
+--fail-bg:#2d1517;--error:#bc8cff;--error-bg:#231a33;--info:#58a6ff;--info-bg:#121d2f;--skip:#8d96a0;--skip-bg:#1c2128}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+main{max-width:1100px;margin:0 auto;padding:32px 16px}
+h1{margin:0 0 4px;font-size:24px}
+.meta{color:var(--muted);font-size:13px}
+.banner{margin:16px 0;padding:10px 14px;border-radius:8px;background:var(--warn-bg);color:var(--warn);border:1px solid var(--border)}
+.headline{margin:20px 0 0;font-size:18px;font-weight:600}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:12px;margin:16px 0 8px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px 14px}
+.card .n{font-size:24px;font-weight:600}
+.card .l{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+section{background:var(--card);border:1px solid var(--border);border-radius:10px;margin:16px 0;overflow:hidden}
+section h2{font-size:15px;margin:0;padding:12px 16px;border-bottom:1px solid var(--border)}
+table{width:100%;border-collapse:collapse}
+td,th{padding:10px 16px;text-align:left;vertical-align:top;border-bottom:1px solid var(--border)}
+tr:last-child td{border-bottom:0}
+th{font-size:12px;color:var(--muted);font-weight:600;text-transform:uppercase}
+td.s{width:90px}td.t{width:28%;font-weight:600}
+.pill{display:inline-block;min-width:56px;text-align:center;padding:2px 8px;border-radius:999px;font-size:12px;font-weight:600;text-transform:uppercase}
+.pass{color:var(--pass);background:var(--pass-bg)}.warn{color:var(--warn);background:var(--warn-bg)}
+.fail{color:var(--fail);background:var(--fail-bg)}.error{color:var(--error);background:var(--error-bg)}
+.info{color:var(--info);background:var(--info-bg)}.skip{color:var(--skip);background:var(--skip-bg)}
+.rem{color:var(--muted);font-size:13px;margin-top:4px}
+details{margin-top:6px}details summary{cursor:pointer;color:var(--muted);font-size:12px}
+dl{display:grid;grid-template-columns:max-content 1fr;gap:2px 12px;margin:6px 0 0;font-size:12px}
+dt{color:var(--muted)}dd{margin:0;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;word-break:break-word}
+footer{color:var(--muted);font-size:12px;margin-top:24px}
+@media (max-width:640px){td,th{padding:8px 10px}td.t{width:auto}}
+</style></head><body><main>
+<header><h1>Mac Health Report</h1>
+<div class="meta">Generated 2026-01-15T12:00:00+00:00 · mac-health-inspector 1.0.0 · schema 1.0</div></header>
+<div class="banner">Synthetic data: this report was rendered from a replay fixture (replay:degraded-laptop.json), not collected from a real Mac.</div>
+<div class="cards">
+<div class="card"><div class="n"><span class="pill fail">fail</span></div><div class="l">Overall</div></div>
+<div class="card"><div class="n">0</div><div class="l">pass</div></div>
+<div class="card"><div class="n">6</div><div class="l">warn</div></div>
+<div class="card"><div class="n">1</div><div class="l">fail</div></div>
+<div class="card"><div class="n">1</div><div class="l">error</div></div>
+<div class="card"><div class="n">2</div><div class="l">info</div></div>
+<div class="card"><div class="n">0</div><div class="l">skip</div></div>
+</div>
+<section><h2>System</h2><table>
+<thead><tr><th>Status</th><th>Check</th><th>Result</th></tr></thead><tbody>
+<tr><td class="s"><span class="pill info">info</span></td><td class="t">macOS version</td><td>macOS 14.7.1 (23H222)<details><summary>Details</summary><dl><dt>product_name</dt><dd>macOS</dd><dt>product_version</dt><dd>14.7.1</dd><dt>build_version</dt><dd>23H222</dd></dl></details></td></tr>
+<tr><td class="s"><span class="pill info">info</span></td><td class="t">Hardware</td><td>MacBookPro16,1, Intel, 8 GB RAM<details><summary>Details</summary><dl><dt>model_identifier</dt><dd>MacBookPro16,1</dd><dt>architecture</dt><dd>x86_64</dd><dt>memory_gb</dt><dd>8.0</dd></dl></details></td></tr>
+<tr><td class="s"><span class="pill warn">warn</span></td><td class="t">Uptime</td><td>Up 21.0 days<div class="rem">Remediation: Schedule a restart soon.</div><details><summary>Details</summary><dl><dt>uptime_days</dt><dd>21.0</dd><dt>boot_epoch</dt><dd>1766664000</dd></dl></details></td></tr>
+</tbody></table></section>
+<section><h2>Resources</h2><table>
+<thead><tr><th>Status</th><th>Check</th><th>Result</th></tr></thead><tbody>
+<tr><td class="s"><span class="pill warn">warn</span></td><td class="t">Boot volume free space</td><td>50.0 GB free (11% of 460 GB)<div class="rem">Remediation: Free disk space: empty Trash, remove large unused files, or offload data.</div><details><summary>Details</summary><dl><dt>free_gb</dt><dd>50.0</dd><dt>total_gb</dt><dd>460.4</dd><dt>free_percent</dt><dd>10.9</dd></dl></details></td></tr>
+<tr><td class="s"><span class="pill fail">fail</span></td><td class="t">Memory availability</td><td>8% of memory free<div class="rem">Remediation: Quit memory-heavy applications or investigate runaway processes in Activity Monitor.</div><details><summary>Details</summary><dl><dt>free_percent</dt><dd>8</dd></dl></details></td></tr>
+<tr><td class="s"><span class="pill warn">warn</span></td><td class="t">CPU load</td><td>5-minute load 13.00 across 8 logical CPUs (1.62 per core)<div class="rem">Remediation: Identify sustained high-CPU processes in Activity Monitor.</div><details><summary>Details</summary><dl><dt>load_1m</dt><dd>14.2</dd><dt>load_5m</dt><dd>13.0</dd><dt>load_15m</dt><dd>11.4</dd><dt>logical_cpus</dt><dd>8</dd><dt>load_per_core_5m</dt><dd>1.62</dd></dl></details></td></tr>
+</tbody></table></section>
+<section><h2>Hardware health</h2><table>
+<thead><tr><th>Status</th><th>Check</th><th>Result</th></tr></thead><tbody>
+<tr><td class="s"><span class="pill warn">warn</span></td><td class="t">Battery health</td><td>Condition Service Recommended, 1043 cycles, 76% maximum capacity<div class="rem">Remediation: Battery service may be needed; check System Settings &gt; Battery &gt; Battery Health.</div><details><summary>Details</summary><dl><dt>condition</dt><dd>Service Recommended</dd><dt>cycle_count</dt><dd>1043</dd><dt>maximum_capacity_percent</dt><dd>76</dd></dl></details></td></tr>
+<tr><td class="s"><span class="pill error">error</span></td><td class="t">Boot disk SMART status</td><td>`/usr/sbin/diskutil info -plist /` exited with status 1: Could not find disk: /<details><summary>Details</summary><dl><dt>command</dt><dd>/usr/sbin/diskutil info -plist /</dd></dl></details></td></tr>
+<tr><td class="s"><span class="pill warn">warn</span></td><td class="t">Recent kernel panics</td><td>1 kernel panic report(s) in the last 7 days<div class="rem">Remediation: Review panic reports in Console &gt; Crash Reports for a common cause (kexts, hardware, OS bug).</div><details><summary>Details</summary><dl><dt>panic_count</dt><dd>1</dd><dt>lookback_days</dt><dd>7</dd><dt>files</dt><dd>[&quot;Kernel-2026-01-13-091500.panic&quot;]</dd></dl></details></td></tr>
+</tbody></table></section>
+<section><h2>Management</h2><table>
+<thead><tr><th>Status</th><th>Check</th><th>Result</th></tr></thead><tbody>
+<tr><td class="s"><span class="pill warn">warn</span></td><td class="t">MDM enrollment</td><td>Enrolled in MDM but not user approved<div class="rem">Remediation: Approve the MDM profile in System Settings so privileged MDM payloads apply.</div><details><summary>Details</summary><dl><dt>enrolled_via_automated_device_enrollment</dt><dd>No</dd><dt>mdm_enrollment</dt><dd>Yes</dd></dl></details></td></tr>
+</tbody></table></section>
+<footer>Read-only report. No settings were changed while collecting this data.</footer>
+</main></body></html>

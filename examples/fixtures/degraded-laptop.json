@@ -1,0 +1,19 @@
+{
+  "description": "SYNTHETIC DATA. Laptop with several health problems and one failing command. Values are invented for testing and demos.",
+  "now": "2026-01-15T12:00:00Z",
+  "commands": {
+    "/usr/bin/sw_vers": {"returncode": 0, "stdout": "ProductName:\t\tmacOS\nProductVersion:\t\t14.7.1\nBuildVersion:\t\t23H222\n"},
+    "/usr/sbin/sysctl -n hw.model": {"returncode": 0, "stdout": "MacBookPro16,1\n"},
+    "/usr/bin/uname -m": {"returncode": 0, "stdout": "x86_64\n"},
+    "/usr/sbin/sysctl -n hw.memsize": {"returncode": 0, "stdout": "8589934592\n"},
+    "/usr/sbin/sysctl -n kern.boottime": {"returncode": 0, "stdout": "{ sec = 1766664000, usec = 0 } Thu Dec 25 12:00:00 2025\n"},
+    "/bin/df -Pk /": {"returncode": 0, "stdout": "Filesystem     1024-blocks      Used Available Capacity  Mounted on\n/dev/disk1s5s1   482797652  10485760  52428800    17%    /\n"},
+    "/usr/bin/memory_pressure -Q": {"returncode": 0, "stdout": "System-wide memory free percentage: 8%\n"},
+    "/usr/sbin/sysctl -n vm.loadavg": {"returncode": 0, "stdout": "{ 14.20 13.00 11.40 }\n"},
+    "/usr/sbin/sysctl -n hw.logicalcpu": {"returncode": 0, "stdout": "8\n"},
+    "/usr/sbin/system_profiler SPPowerDataType -json": {"returncode": 0, "stdout": "{\"SPPowerDataType\":[{\"_name\":\"spbattery_information\",\"sppower_battery_health_info\":{\"sppower_battery_cycle_count\":1043,\"sppower_battery_health\":\"Service Recommended\",\"sppower_battery_health_maximum_capacity\":\"76%\"}}]}\n"},
+    "/usr/sbin/diskutil info -plist /": {"returncode": 1, "stdout": "", "stderr": "Could not find disk: /\n"},
+    "/usr/bin/find /Library/Logs/DiagnosticReports -maxdepth 1 -type f -name '*.panic' -mtime -7": {"returncode": 0, "stdout": "/Library/Logs/DiagnosticReports/Kernel-2026-01-13-091500.panic\n"},
+    "/usr/bin/profiles status -type enrollment": {"returncode": 0, "stdout": "Enrolled via DEP: No\nMDM enrollment: Yes\n"}
+  }
+}

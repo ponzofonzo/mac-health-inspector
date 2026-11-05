@@ -1,0 +1,60 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  unit-tests:
+    name: Unit tests (${{ matrix.os }}, Python ${{ matrix.python }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            python: "3.9"
+          - os: ubuntu-latest
+            python: "3.13"
+          - os: macos-latest
+            python: "3.13"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Byte-compile
+        run: python -m compileall -q mac_health_inspector tests
+      - name: Unit tests (mocked command output)
+        run: python -m unittest discover -s tests -t . -v
+
+  macos-smoke:
+    name: Live smoke run (GitHub-hosted macOS VM)
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run read-only collection against the runner
+        run: |
+          set +e
+          python3 -m mac_health_inspector --json smoke/report.json --html smoke/report.html
+          echo "exit status: $?"
+      - name: Validate report structure
+        run: |
+          python3 - <<'EOF'
+          import json
+          report = json.load(open("smoke/report.json"))
+          assert report["data_source"] == "live", report["data_source"]
+          assert len(report["checks"]) == 10, len(report["checks"])
+          print(json.dumps(report["summary"], indent=2))
+          for check in report["checks"]:
+              print(f'{check["status"]:>5}  {check["id"]:<16} {check["summary"]}')
+          EOF
+      - uses: actions/upload-artifact@v4
+        with:
+          name: macos-smoke-report
+          path: smoke/

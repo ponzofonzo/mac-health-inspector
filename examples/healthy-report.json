@@ -1,0 +1,151 @@
+{
+  "schema_version": "1.0",
+  "tool": {
+    "name": "mac-health-inspector",
+    "version": "1.0.0"
+  },
+  "generated_at": "2026-01-15T12:00:00+00:00",
+  "data_source": "replay:healthy-laptop.json",
+  "summary": {
+    "overall_status": "pass",
+    "total": 10,
+    "counts": {
+      "pass": 8,
+      "warn": 0,
+      "fail": 0,
+      "error": 0,
+      "info": 2,
+      "skip": 0
+    }
+  },
+  "checks": [
+    {
+      "id": "os_version",
+      "title": "macOS version",
+      "category": "System",
+      "status": "info",
+      "summary": "macOS 15.2 (24C101)",
+      "details": {
+        "product_name": "macOS",
+        "product_version": "15.2",
+        "build_version": "24C101"
+      },
+      "remediation": ""
+    },
+    {
+      "id": "hardware",
+      "title": "Hardware",
+      "category": "System",
+      "status": "info",
+      "summary": "Mac15,6, Apple silicon, 16 GB RAM",
+      "details": {
+        "model_identifier": "Mac15,6",
+        "architecture": "arm64",
+        "memory_gb": 16.0
+      },
+      "remediation": ""
+    },
+    {
+      "id": "uptime",
+      "title": "Uptime",
+      "category": "System",
+      "status": "pass",
+      "summary": "Up 3.0 days",
+      "details": {
+        "uptime_days": 3.0,
+        "boot_epoch": 1768219200
+      },
+      "remediation": ""
+    },
+    {
+      "id": "disk_space",
+      "title": "Boot volume free space",
+      "category": "Resources",
+      "status": "pass",
+      "summary": "286.1 GB free (62% of 460 GB)",
+      "details": {
+        "free_gb": 286.1,
+        "total_gb": 460.4,
+        "free_percent": 62.1
+      },
+      "remediation": ""
+    },
+    {
+      "id": "memory_pressure",
+      "title": "Memory availability",
+      "category": "Resources",
+      "status": "pass",
+      "summary": "58% of memory free",
+      "details": {
+        "free_percent": 58
+      },
+      "remediation": ""
+    },
+    {
+      "id": "cpu_load",
+      "title": "CPU load",
+      "category": "Resources",
+      "status": "pass",
+      "summary": "5-minute load 1.85 across 12 logical CPUs (0.15 per core)",
+      "details": {
+        "load_1m": 2.1,
+        "load_5m": 1.85,
+        "load_15m": 1.7,
+        "logical_cpus": 12,
+        "load_per_core_5m": 0.15
+      },
+      "remediation": ""
+    },
+    {
+      "id": "battery",
+      "title": "Battery health",
+      "category": "Hardware health",
+      "status": "pass",
+      "summary": "Condition Normal, 212 cycles, 94% maximum capacity",
+      "details": {
+        "condition": "Normal",
+        "cycle_count": 212,
+        "maximum_capacity_percent": 94
+      },
+      "remediation": ""
+    },
+    {
+      "id": "storage_smart",
+      "title": "Boot disk SMART status",
+      "category": "Hardware health",
+      "status": "pass",
+      "summary": "SMART status Verified",
+      "details": {
+        "smart_status": "Verified",
+        "solid_state": true,
+        "file_system": "APFS"
+      },
+      "remediation": ""
+    },
+    {
+      "id": "kernel_panics",
+      "title": "Recent kernel panics",
+      "category": "Hardware health",
+      "status": "pass",
+      "summary": "0 kernel panic report(s) in the last 7 days",
+      "details": {
+        "panic_count": 0,
+        "lookback_days": 7,
+        "files": []
+      },
+      "remediation": ""
+    },
+    {
+      "id": "mdm_enrollment",
+      "title": "MDM enrollment",
+      "category": "Management",
+      "status": "pass",
+      "summary": "Enrolled in MDM (user approved)",
+      "details": {
+        "enrolled_via_automated_device_enrollment": "Yes",
+        "mdm_enrollment": "Yes (User Approved)"
+      },
+      "remediation": ""
+    }
+  ]
+}
